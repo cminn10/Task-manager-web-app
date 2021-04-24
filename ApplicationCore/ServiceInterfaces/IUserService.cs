@@ -12,7 +12,7 @@ namespace ApplicationCore.ServiceInterfaces
         Task<UserResponseModel> CreateUser(UserRegisterModel registerModel);
         Task<bool> UserExists(string email);
         Task<UserResponseModel> ValidateUser(string email, string password);
-        Task<UserResponseModel> UpdateUser(int id);
+        Task<UserResponseModel> UpdateUser(UserUpdateModel updateModel);
         Task DeleteUser(int id);
     }
 }

@@ -11,13 +11,13 @@ namespace Infrastructure.Data
         }
 
         public DbSet<AppUser> Users { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<AppTask> Tasks { get; set; }
         public DbSet<TaskHistory> TasksHistory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AppUser>(ConfigureUser);
-            modelBuilder.Entity<Task>(ConfigureTask);
+            modelBuilder.Entity<AppTask>(ConfigureTask);
             modelBuilder.Entity<TaskHistory>(ConfigureTaskHistory);
         }
 
@@ -25,14 +25,14 @@ namespace Infrastructure.Data
         {
             builder.ToTable("Users");
             builder.HasKey(u => u.Id);
-            builder.Property(u => u.Password).IsRequired().HasMaxLength(10);
+            builder.Property(u => u.Password).IsRequired().HasMaxLength(1024);
             builder.HasIndex(u => u.Email).IsUnique();
             builder.Property(u => u.Email).HasMaxLength(50);
             builder.Property(u => u.Fullname).HasMaxLength(50);
             builder.Property(u => u.Mobileno).HasMaxLength(50);
         }
 
-        private void ConfigureTask(EntityTypeBuilder<Task> builder)
+        private void ConfigureTask(EntityTypeBuilder<AppTask> builder)
         {
             builder.ToTable("Tasks");
             builder.HasKey(t => t.Id);
@@ -40,6 +40,7 @@ namespace Infrastructure.Data
             builder.Property(t => t.Title).HasMaxLength(50);
             builder.Property(t => t.Description).HasMaxLength(500);
             builder.Property(t => t.Remarks).HasMaxLength(500);
+            builder.Property(t => t.Priority).HasDefaultValue("E");
 
             builder.HasOne(t => t.User)
                 .WithMany(u => u.Tasks)
@@ -50,15 +51,13 @@ namespace Infrastructure.Data
         {
             builder.ToTable("Tasks History");
             builder.HasKey(h => h.TaskId);
+            builder.Property(h => h.TaskId).ValueGeneratedNever();
             builder.Property(h => h.UserId).IsRequired();
             builder.Property(h => h.Title).HasMaxLength(50);
             builder.Property(h => h.Description).HasMaxLength(500);
             builder.Property(h => h.Remarks).HasMaxLength(500);
             builder.Property(h => h.Completed).HasDefaultValueSql("getdate()");
             
-            builder.HasOne(h => h.Task)
-                .WithOne(t => t.TaskHistory)
-                .HasForeignKey<TaskHistory>(h => h.TaskId);
             builder.HasOne(t => t.User)
                 .WithMany(u => u.TasksHistories)
                 .HasForeignKey(h => h.UserId);

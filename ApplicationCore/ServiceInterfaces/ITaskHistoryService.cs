@@ -9,10 +9,10 @@ namespace ApplicationCore.ServiceInterfaces
     {
         Task<IEnumerable<TaskResponseModel>> ListAllTaskHistories();
         Task<TaskResponseModel> GetHistoryDetails(int id);
-        Task<IEnumerable<TaskResponseModel>> GetHistoryByUser(int userId);
+        Task<IEnumerable<TaskResponseModel>> GetHistoriesByUser(int userId);
 
         Task<TaskResponseModel> CreateTaskHistory(TaskRequestModel taskRequest);
-        Task<TaskResponseModel> UpdateTaskHistory(TaskRequestModel taskRequest);
+        Task<TaskResponseModel> UpdateTaskHistory(int id, char priority = 'E');
         Task DeleteTaskHistory(int id);
     }
 }

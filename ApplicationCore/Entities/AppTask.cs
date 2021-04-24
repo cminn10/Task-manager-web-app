@@ -2,7 +2,7 @@ using System;
 
 namespace ApplicationCore.Entities
 {
-    public class Task
+    public class AppTask
     {
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -13,6 +13,5 @@ namespace ApplicationCore.Entities
         public string Remarks { get; set; }
 
         public AppUser User { get; set; }
-        public TaskHistory TaskHistory { get; set; }
     }
 }

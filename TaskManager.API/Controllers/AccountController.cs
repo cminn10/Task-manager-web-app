@@ -45,14 +45,14 @@ namespace TaskManager.API.Controllers
         [Authorize]
         [HttpPost]
         [Route("edit-profile")]
-        public async Task<IActionResult> UpdateUser(int id)
+        public async Task<IActionResult> UpdateUser(UserUpdateModel model)
         {
-            var user = await _userService.UpdateUser(id);
+            var user = await _userService.UpdateUser(model);
             return Ok(user);
         }
 
         [Authorize]
-        [HttpDelete("close-account")]
+        [HttpDelete("close-account/{id:int}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             await _userService.DeleteUser(id);

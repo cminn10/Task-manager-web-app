@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ApplicationCore.RepositoryInterfaces;
 using Infrastructure.Data;
@@ -20,9 +23,19 @@ namespace Infrastructure.Repositories
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
+        public virtual async Task<T> GetByIdWithIncludeAsync(Expression<Func<T, bool>> where, Expression<Func<T, object>> include)
+        {
+            return await _dbContext.Set<T>().Include(include).FirstOrDefaultAsync(where);
+        }
+        
         public virtual async Task<IEnumerable<T>> ListAllAsync()
         {
             return await _dbContext.Set<T>().ToListAsync();
+        }
+
+        public virtual async Task<IEnumerable<T>> ListAllWithFilterAsync(Expression<Func<T, bool>> where)
+        {
+            return await _dbContext.Set<T>().Where(where).ToListAsync();
         }
 
         public virtual async Task<T> AddAsync(T entity)
@@ -32,9 +45,13 @@ namespace Infrastructure.Repositories
             return entity;
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity, params Expression<Func<T, object>>[] includeProperties)
         {
-            _dbContext.Entry(entity).State = EntityState.Modified;
+            var dbEntry = _dbContext.Entry(entity);
+            foreach (var includeProperty in includeProperties)
+            {
+                dbEntry.Property(includeProperty).IsModified = true;
+            }
             await _dbContext.SaveChangesAsync();
             return entity;
         }

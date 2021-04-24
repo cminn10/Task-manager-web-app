@@ -12,6 +12,14 @@ namespace Infrastructure.Repositories
         {
         }
 
+        public override Task<AppUser> GetByIdAsync(int id)
+        {
+            var user = _dbContext.Users
+                .Include(u => u.Tasks)
+                .FirstOrDefaultAsync(u => u.Id == id);
+            return user;
+        }
+
         public async Task<AppUser> GetUserByEmail(string email)
         {
             return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);

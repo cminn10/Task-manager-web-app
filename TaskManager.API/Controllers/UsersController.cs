@@ -9,6 +9,7 @@ namespace TaskManager.API.Controllers
     public class UsersController: ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly ITaskService _taskService;
 
         public UsersController(IUserService userService)
         {
@@ -29,6 +30,14 @@ namespace TaskManager.API.Controllers
         {
             var user = await _userService.GetUserById(id);
             return Ok(user);
+        }
+
+        [HttpGet]
+        [Route("{id:int}/task")]
+        public async Task<IActionResult> GetTasksByUser(int userId)
+        {
+            var tasks = await _taskService.GetTasksByUser(userId);
+            return Ok(tasks);
         }
     }
 }

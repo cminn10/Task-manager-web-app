@@ -19,7 +19,7 @@ namespace Infrastructure.Helpers
         public static void AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IAsyncRepository<Task>, EfRepository<Task>>();
+            services.AddScoped<IAsyncRepository<AppTask>, EfRepository<AppTask>>();
             services.AddScoped<IAsyncRepository<TaskHistory>, EfRepository<TaskHistory>>();
         }
         public static void AddServices(this IServiceCollection services)

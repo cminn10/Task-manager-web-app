@@ -13,7 +13,6 @@ namespace ApplicationCore.Entities
         public string Remarks { get; set; }
         
         //navs
-        public Task Task { get; set; }
         public AppUser User { get; set; }
     }
 }

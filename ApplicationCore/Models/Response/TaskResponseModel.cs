@@ -1,4 +1,5 @@
 using System;
+using ApplicationCore.Entities;
 
 namespace ApplicationCore.Models.Response
 {
@@ -12,5 +13,7 @@ namespace ApplicationCore.Models.Response
         public DateTime Completed { get; set; }
         public char Priority { get; set; }
         public string Remarks { get; set; }
+
+        public UserResponseModel User { get; set; }
     }
 }

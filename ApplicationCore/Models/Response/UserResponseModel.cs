@@ -10,6 +10,6 @@ namespace ApplicationCore.Models.Response
         public string Fullname { get; set; }
         public string Mobileno { get; set; }
 
-        public List<TaskResponseModel> Tasks { get; set; }
+        public IEnumerable<TaskResponseModel> Tasks { get; set; }
     }
 }
