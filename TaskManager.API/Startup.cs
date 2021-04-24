@@ -34,9 +34,11 @@ namespace TaskManager.API
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "TaskManager.API", Version = "v1"});
             });
             services.AddDbConfig(_config);
-            services.AddAutoMapper(typeof(Startup), typeof(TaskManagerMappingProfile));
             services.AddRepositories();
             services.AddServices();
+            
+            services.AddAutoMapper(typeof(Startup), typeof(TaskManagerMappingProfile));
+            
             services.AddCors();
             services.AddIdentityServices(_config);
         }

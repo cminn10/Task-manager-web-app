@@ -1,5 +1,10 @@
 using System.Text;
+using ApplicationCore.Entities;
+using ApplicationCore.RepositoryInterfaces;
+using ApplicationCore.ServiceInterfaces;
 using Infrastructure.Data;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +18,17 @@ namespace Infrastructure.Helpers
     {
         public static void AddRepositories(this IServiceCollection services)
         {
-            
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAsyncRepository<Task>, EfRepository<Task>>();
+            services.AddScoped<IAsyncRepository<TaskHistory>, EfRepository<TaskHistory>>();
         }
         public static void AddServices(this IServiceCollection services)
         {
-            
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICryptoService, CryptoService>();
+            services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<ITaskService, TaskService>();
+            services.AddScoped<ITaskHistoryService, TaskHistoryService>();
         }
 
         public static void AddDbConfig(this IServiceCollection services, IConfiguration config)

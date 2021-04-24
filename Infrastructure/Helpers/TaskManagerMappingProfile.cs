@@ -9,6 +9,8 @@ namespace Infrastructure.Helpers
         public TaskManagerMappingProfile()
         {
             CreateMap<AppUser, UserResponseModel>().ReverseMap();
+            CreateMap<Task, TaskResponseModel>().ReverseMap();
+            CreateMap<TaskHistory, TaskResponseModel>().ReverseMap();
         }
     }
 }
