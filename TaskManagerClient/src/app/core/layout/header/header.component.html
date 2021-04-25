@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Task Manager</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
         aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,17 +11,14 @@
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" *ngIf="currentUser.id" routerLink="users/{{currentUser.id}}/tasks">Manage Tasks</a>
             </li>
         </ul>
-        <div *ngIf="!isAuthenticated" class="mx-3">
+        <div *ngIf="!currentUser.id" class="mx-3">
             <a class="btn btn-light mx-1" [routerLink]="['/sign-up']">Sign-up</a>
             <a class="btn btn-light mx-1" [routerLink]="['/login']">Login</a>
         </div>
-        <div *ngIf="isAuthenticated" class="dropdown" ngbDropdown>
+        <div *ngIf="currentUser.id" class="dropdown" ngbDropdown>
             <a class="nav-link dropdown-toggle btn btn-secondary" ngbDropdownToggle id="dropdown01"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
             <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdown01">

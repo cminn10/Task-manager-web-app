@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from '../core/services/task.service';
 import { Task } from '../shared/models/task';
 
@@ -13,11 +13,12 @@ export class TasksComponent implements OnInit {
   tasks: Task[] | undefined;
   histories: Task[] | undefined;
   private id: number = 0;
+  public isCollapsed = true;
 
   constructor(private taskService: TaskService,
     private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getTasks();
     this.getHistories();
   }
@@ -33,6 +34,7 @@ export class TasksComponent implements OnInit {
           }
         )
       }
+
     )
   }
 

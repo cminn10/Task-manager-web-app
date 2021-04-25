@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using ApplicationCore.Models.Request;
 using ApplicationCore.Models.Response;
 using ApplicationCore.ServiceInterfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TaskManager.API.Controllers

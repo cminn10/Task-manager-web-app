@@ -1,19 +1,39 @@
-<div class="rounded">
+<div class="jumbotron">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let t of tasks">
-                <app-task-entry [task]="t">
-                </app-task-entry>
+        <p>
+            <button type="button" class="btn btn-info btn-lg" (click)="collapse.toggle()"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                Create a New Task »
+            </button>
+        </p>
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+            <div class="card">
+                <div class="card-body">
+                    <app-create-task></app-create-task>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="rounded">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let h of histories">
-                <app-history-entry [history]="h">
-                </app-history-entry>
+
+        <p class="display-4">Current Tasks</p>
+        <div class="rounded">
+            <div class="container-fluid">
+                <div class="row">
+                    <div *ngFor="let t of tasks">
+                        <app-task-entry [task]="t">
+                        </app-task-entry>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="display-4">Tasks History</p>
+        <div class="rounded">
+            <div class="container-fluid">
+                <div class="row">
+                    <div *ngFor="let h of histories">
+                        <app-history-entry [history]="h">
+                        </app-history-entry>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
 import { HistoryEntryComponent } from './shared/components/history-entry/history-entry.component';
+import { CreateTaskComponent } from './tasks/create-task/create-task.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HistoryEntryComponent } from './shared/components/history-entry/history
     TasksComponent,
     EditTaskComponent,
     UpdateProfileComponent,
-    HistoryEntryComponent
+    HistoryEntryComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,

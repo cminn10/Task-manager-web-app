@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Task } from 'src/app/shared/models/task';
+import { TaskInfo } from 'src/app/shared/models/task-info';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -28,11 +29,11 @@ export class TaskService {
     return this.apiService.getOne('/history', id);
   }
 
-  createTask(task: Task): Observable<any> {
+  createTask(task: TaskInfo): Observable<any> {
     return this.apiService.create('/tasks/create', task);
   }
 
-  updateTask(task: Task): Observable<any> {
+  updateTask(task: TaskInfo): Observable<any> {
     return this.apiService.create('/tasks/update', task);
   }
 
@@ -44,11 +45,11 @@ export class TaskService {
     return this.apiService.getOne('/history/revert', id);
   }
 
-  deleteTask(id: number) {
+  deleteTask(id: number): Observable<any> {
     return this.apiService.delete('/tasks/delete', id);
   }
 
-  deleteHistory(id: number) {
+  deleteHistory(id: number): Observable<any> {
     return this.apiService.delete('/history/delete', id);
   }
 

@@ -1,0 +1,36 @@
+<div class="container">
+    <form #createForm="ngForm" (ngSubmit)="create()">
+        <div *ngIf="invalidCreate" class="alert alert-danger">Invalid input fields.</div>
+        <div *ngIf="createSucess" class="alert alert-success">Task created.</div>
+        <div class="form-group">
+            <label for="task-title">Title</label>
+            <input type="text" class="form-control" id="task-title" name="title" [(ngModel)]="taskCreate.title">
+        </div>
+        <div class="form-group">
+            <label for="task-description">Description</label>
+            <textarea class="form-control" id="task-description" rows="2" name="description"
+                [(ngModel)]="taskCreate.description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="task-priority">Priority</label>
+            <select class="form-control" id="task-priority" name="priority" [(ngModel)]="taskCreate.priority">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="task-description">Due Date</label>
+            <ngb-datepicker #dp [(ngModel)]="model" name="model" (navigate)="date = $event.next" class="mx-5">
+            </ngb-datepicker>
+        </div>
+        <div class="form-group">
+            <label for="task-remarks">Remarks</label>
+            <textarea class="form-control" id="task-remarks" rows="2" name="remarks"
+                [(ngModel)]="taskCreate.remarks"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

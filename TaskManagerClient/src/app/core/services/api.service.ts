@@ -27,8 +27,8 @@ export class ApiService {
     return this.http.post(`${environment.apiUrl}${path}`, resource).pipe(map(res => res));
   }
 
-  delete(path: string, id?: number) {
-    this.http.delete(`${environment.apiUrl}${path}` + '/' + id)
+  delete(path: string, id?: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}${path}` + '/' + id);
   }
 }
 
