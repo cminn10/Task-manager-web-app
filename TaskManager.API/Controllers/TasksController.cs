@@ -32,6 +32,14 @@ namespace TaskManager.API.Controllers
             var task = await _taskService.GetTaskDetails(id);
             return Ok(task);
         }
+        
+        [HttpGet]
+        [Route("user/{id:int}")]
+        public async Task<IActionResult> GetTasksByUser(int id)
+        {
+            var tasks = await _taskService.GetTasksByUser(id);
+            return Ok(tasks);
+        }
 
         [HttpPost]
         [Route("create")]
@@ -42,7 +50,7 @@ namespace TaskManager.API.Controllers
         }
 
         [HttpPost]
-        [Route("update/{id:int}")]
+        [Route("update")]
         public async Task<IActionResult> UpdateTask(TaskRequestModel taskRequest)
         {
             var updatedTask = await _taskService.UpdateTask(taskRequest);
@@ -57,7 +65,7 @@ namespace TaskManager.API.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("complete/{id:int}")]
         public async Task<IActionResult> CompleteTask(int id)
         {

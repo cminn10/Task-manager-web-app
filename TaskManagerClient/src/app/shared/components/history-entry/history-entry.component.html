@@ -1,0 +1,19 @@
+<div class="card mb-4 shadow-sm">
+    <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{history?.title}}</h4>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title pricing-card-title text-secondary"><small class="text-success">Completed:</small>
+            {{completed}}
+        </h3>
+        <div class="text-muted">Due on: {{dueDate}}</div>
+        <div class="list-unstyled mt-3 mb-4">
+            <p>{{history?.description}}</p>
+            <p>{{history?.remarks}}</p>
+        </div>
+        <div>
+            <button type="button" class="btn btn-outline-danger mx-1">Delete</button>
+            <button type="button" class="btn btn-primary mx-1">Put Back</button>
+        </div>
+    </div>
+</div>

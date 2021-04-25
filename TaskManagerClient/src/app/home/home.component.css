@@ -1,0 +1,7 @@
+.home-container{
+    display: flex;
+}
+
+.card-name{
+    cursor: pointer;
+}

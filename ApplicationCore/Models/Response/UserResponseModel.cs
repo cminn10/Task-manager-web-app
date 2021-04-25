@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using ApplicationCore.Entities;
 
 namespace ApplicationCore.Models.Response
@@ -11,5 +12,6 @@ namespace ApplicationCore.Models.Response
         public string Mobileno { get; set; }
 
         public IEnumerable<TaskResponseModel> Tasks { get; set; }
+        public IEnumerable<TaskResponseModel> TasksHistories { get; set; }
     }
 }

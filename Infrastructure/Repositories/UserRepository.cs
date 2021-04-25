@@ -16,6 +16,7 @@ namespace Infrastructure.Repositories
         {
             var user = _dbContext.Users
                 .Include(u => u.Tasks)
+                .Include(u=>u.TasksHistories)
                 .FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }

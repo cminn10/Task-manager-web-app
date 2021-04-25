@@ -1,0 +1,30 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Task Manager</h1>
+        <p class="h4 text-dark my-4">Welcome, <span>{{currentUser.fullname}}.</span> </p>
+        <p class="h5 text-secondary my-4">Please feel free to: </p>
+        <div><a class="btn btn-dark btn-lg mx-1" *ngIf="!currentUser.id" [routerLink]="['/login']"
+                role="button">Login</a>
+            <a class="btn btn-dark btn-lg mx-1" *ngIf="!currentUser.id" [routerLink]="['/sign-up']" role="button">Sign
+                up</a>
+            <a class="btn btn-dark btn-lg mx-1" *ngIf="currentUser.id" routerLink="users/{{currentUser.id}}/tasks"
+                role="button">Manage Tasks</a>
+            <a class="btn btn-info btn-lg mx-3" role="button" (click)="collapse.toggle()"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">Browse all tasks by user ↓</a>
+        </div>
+    </div>
+    <div class="mt-5" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <div class="container-fluid home-container">
+            <div class="container" *ngFor="let u of users">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title h4 card-name" routerLink="users/{{u.id}}/tasks">{{u?.fullname}}
+                        </p>
+                        <p class="card-subtitle mb-2 text-muted h6">{{u?.email}}</p>
+                        <p class="card-text">{{u?.mobileno}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

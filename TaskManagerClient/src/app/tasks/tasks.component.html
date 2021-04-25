@@ -1,0 +1,20 @@
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let t of tasks">
+                <app-task-entry [task]="t">
+                </app-task-entry>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 col-lg-3 col-sm-4 col-xl-2" *ngFor="let h of histories">
+                <app-history-entry [history]="h">
+                </app-history-entry>
+            </div>
+        </div>
+    </div>
+</div>

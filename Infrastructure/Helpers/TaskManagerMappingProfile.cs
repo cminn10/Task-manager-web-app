@@ -11,6 +11,7 @@ namespace Infrastructure.Helpers
         {
             CreateMap<AppUser, UserResponseModel>()
                 .ForMember(x=>x.Tasks, opt=>opt.Ignore())
+                .ForMember(x=>x.TasksHistories, opt=>opt.Ignore())
                 .ReverseMap();
             CreateMap<UserRegisterModel, AppUser>();
             CreateMap<UserUpdateModel, AppUser>();

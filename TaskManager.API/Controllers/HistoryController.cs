@@ -31,6 +31,14 @@ namespace TaskManager.API.Controllers
             var history = await _historyService.GetHistoryDetails(id);
             return Ok(history);
         }
+        
+        [HttpGet]
+        [Route("user/{id:int}")]
+        public async Task<IActionResult> GetHistoriesByUser(int id)
+        {
+            var tasks = await _historyService.GetHistoriesByUser(id);
+            return Ok(tasks);
+        }
 
         [HttpPost]
         [Route("create")]
@@ -40,7 +48,7 @@ namespace TaskManager.API.Controllers
             return Ok(createdHistory);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("revert/{id:int}")]
         public async Task<IActionResult> RevertHistory(int id)
         {

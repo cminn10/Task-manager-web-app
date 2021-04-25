@@ -26,10 +26,10 @@ namespace Infrastructure.Services
         {
             var claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.NameIdentifier, model.Id.ToString()),
+                new Claim("id", model.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, model.Email),
-                new Claim(JwtRegisteredClaimNames.FamilyName, model.Fullname),
-                
+                new Claim("fullname", model.Fullname),
+                new Claim("mobileno", model.Mobileno)
             };
             //create identity object to store claims
             var identityClaims = new ClaimsIdentity();

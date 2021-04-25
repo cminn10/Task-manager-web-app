@@ -1,0 +1,18 @@
+<div class="card mb-4 shadow-sm">
+    <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{task?.title}}</h4>
+    </div>
+    <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{task?.priority}} <small class="text-muted">{{dueDate}}</small>
+        </h1>
+        <div class="list-unstyled mt-3 mb-4">
+            <p>{{task?.description}}</p>
+            <p>{{task?.remarks}}</p>
+        </div>
+        <div>
+            <button type="button" class="btn btn-outline-primary mx-1">Edit</button>
+            <button type="button" class="btn btn-primary mx-1">Complete</button>
+            <button type="button" class="btn btn-outline-danger mx-1 mt-1">Delete</button>
+        </div>
+    </div>
+</div>

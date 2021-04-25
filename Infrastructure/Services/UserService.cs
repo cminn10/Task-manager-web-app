@@ -35,8 +35,10 @@ namespace Infrastructure.Services
         {
             var user = await _userRepository.GetByIdAsync(id);
             var tasks = _mapper.Map<IEnumerable<TaskResponseModel>>(user.Tasks);
+            var histories = _mapper.Map<IEnumerable<TaskResponseModel>>(user.TasksHistories);
             var userModel = _mapper.Map<UserResponseModel>(user);
             userModel.Tasks = tasks;
+            userModel.TasksHistories = histories;
             return userModel;
         }
 
