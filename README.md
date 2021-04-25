@@ -5,5 +5,5 @@
 ## Setup
 * Replace connection string at ~/Task-manager-web-app/TaskManager.API/appsettings.json
 
-## Remainings
+### Remainings
 * Update function on tasks finished at backend, remains to be completed at client
