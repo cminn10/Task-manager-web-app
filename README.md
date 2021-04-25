@@ -8,5 +8,3 @@
 ## Test CRUDs
 * Import Postman collection JSON file to Postman agent to test API CRUD functions.
 
-### Remainings
-* Update function on tasks finished at backend, remains to be completed at client.
