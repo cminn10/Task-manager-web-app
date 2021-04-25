@@ -19,6 +19,7 @@ import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { UpdateProfileComponent } from './auth/update-profile/update-profile.component';
 import { HistoryEntryComponent } from './shared/components/history-entry/history-entry.component';
 import { CreateTaskComponent } from './tasks/create-task/create-task.component';
+import { TaskEditFormComponent } from './shared/components/task-edit-form/task-edit-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CreateTaskComponent } from './tasks/create-task/create-task.component';
     EditTaskComponent,
     UpdateProfileComponent,
     HistoryEntryComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    TaskEditFormComponent
   ],
   imports: [
     BrowserModule,

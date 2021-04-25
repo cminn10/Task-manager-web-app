@@ -10,7 +10,7 @@
             <p>{{task?.remarks}}</p>
         </div>
         <div>
-            <button type="button" class="btn btn-outline-primary mx-1">Edit</button>
+            <button type="button" class="btn btn-outline-primary mx-1" routerLink="edit-task">Edit</button>
             <button type="button" class="btn btn-success mx-1" (click)="completeTask()">Complete</button>
             <button type="button" class="btn btn-outline-danger mx-1 mt-1" (click)="deleteTask()">Delete</button>
         </div>
