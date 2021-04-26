@@ -10,9 +10,20 @@
             <p>{{task?.remarks}}</p>
         </div>
         <div>
-            <button type="button" class="btn btn-outline-primary mx-1" routerLink="edit-task">Edit</button>
+            <button type="button" class="btn btn-outline-primary mx-1" (click)="collapse.toggle()"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                Edit
+            </button>
             <button type="button" class="btn btn-success mx-1" (click)="completeTask()">Complete</button>
             <button type="button" class="btn btn-outline-danger mx-1 mt-1" (click)="deleteTask()">Delete</button>
+
+        </div>
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+            <div class="card">
+                <div class="card-body">
+                    <app-edit-task [originalTask]="task"></app-edit-task>
+                </div>
+            </div>
         </div>
     </div>
 </div>

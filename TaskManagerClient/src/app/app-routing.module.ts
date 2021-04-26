@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "sign-up", component: RegisterComponent },
   { path: "update-profile", component: UpdateProfileComponent },
-  { path: "users/:userid/tasks", component: TasksComponent },
-  { path: "users/:userid/tasks/edit-task", component: EditTaskComponent },
-  { path: "users/:userid/tasks/create-task", component: CreateTaskComponent }
+  { path: "users/:userid/tasks", component: TasksComponent }
+  // { path: "users/:userid/tasks/edit-task", component: EditTaskComponent },
+  // { path: "users/:userid/tasks/create-task", component: CreateTaskComponent }
 ];
 
 @NgModule({

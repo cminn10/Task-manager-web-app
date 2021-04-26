@@ -33,7 +33,7 @@ export class TaskService {
     return this.apiService.create('/tasks/create', task);
   }
 
-  updateTask(task: TaskInfo): Observable<any> {
+  updateTask(task: Task): Observable<any> {
     return this.apiService.create('/tasks/update', task);
   }
 

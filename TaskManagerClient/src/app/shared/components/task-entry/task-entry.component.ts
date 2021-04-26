@@ -12,6 +12,7 @@ export class TaskEntryComponent implements OnInit {
 
   @Input() task!: Task
   dueDate: string | undefined;
+  public isCollapsed = true;
 
   constructor(private taskService: TaskService,
     @Inject(DOCUMENT) private _document: Document) {

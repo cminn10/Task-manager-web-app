@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">Task Manager</h1>
-        <p class="h4 text-dark my-4">Welcome, <span>{{currentUser.fullname}}.</span> </p>
+        <p class="h4 text-dark my-4">Welcome <span *ngIf="!currentUser.id">,{{currentUser.fullname}}.</span> </p>
         <p class="h5 text-secondary my-4">Please feel free to: </p>
         <div><a class="btn btn-dark btn-lg mx-1" *ngIf="!currentUser.id" [routerLink]="['/login']"
                 role="button">Login</a>
