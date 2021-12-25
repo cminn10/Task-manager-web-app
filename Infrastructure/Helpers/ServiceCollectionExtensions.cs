@@ -35,7 +35,7 @@ namespace Infrastructure.Helpers
         {
             services.AddDbContext<TaskManagerDbContext>(options =>
             {
-                options.UseSqlServer(config.GetConnectionString("TaskManagerDbConnection"));
+                options.UseNpgsql(config.GetConnectionString("TaskManagerDbConnection"));
             });
         }
         

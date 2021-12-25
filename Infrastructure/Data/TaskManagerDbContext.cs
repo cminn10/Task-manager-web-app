@@ -56,7 +56,7 @@ namespace Infrastructure.Data
             builder.Property(h => h.Title).HasMaxLength(50);
             builder.Property(h => h.Description).HasMaxLength(500);
             builder.Property(h => h.Remarks).HasMaxLength(500);
-            builder.Property(h => h.Completed).HasDefaultValueSql("getdate()");
+            builder.Property(h => h.Completed).HasDefaultValueSql("CURRENT_DATE");
             
             builder.HasOne(t => t.User)
                 .WithMany(u => u.TasksHistories)
